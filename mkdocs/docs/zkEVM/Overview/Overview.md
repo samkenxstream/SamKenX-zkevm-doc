@@ -135,6 +135,10 @@ Below is a summary of the structure of how Sequencers and Aggregators are incent
 
 
 (a) Sequencer
+
+
+
+
 - Collects transactions and publish them in a batch
 - Receives fees from the published transactions
 - Pays L1 transaction fees + MATIC (depends on pending batches)
@@ -144,6 +148,9 @@ Below is a summary of the structure of how Sequencers and Aggregators are incent
 
 
 (b) Aggregator
+
+
+
 
 - Processes transactions published by Sequencers
 - Builds zkProof
