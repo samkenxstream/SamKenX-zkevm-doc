@@ -130,23 +130,26 @@ An Aggregator receives all the transaction information from the Sequencer and se
 
 ##### Incentivization Structure
 
-
 Below is a summary of the structure of how Sequencers and Aggregators are incentivised:
 
-- Sequencer
-  - Collects transactions and publish them in a batch
-  - Receives fees from the published transactions
-  - Pays L1 transaction fees + MATIC (depends on pending batches)
-  - MATIC goes to Aggregators
-  - Profitable if: `txs fees` > `L1 call` + `MATIC` fee
-- Aggregator
-  - Processes transactions published by Sequencers
-  - Builds zkProof
-  - Receives MATIC from Sequencer
-  - Static Cost: L1 call cost + Server cost (to build a proof)
-  - Profitable if: `MATIC fee` > `L1 call` + `Server cost`
 
 
+(a) Sequencer
+- Collects transactions and publish them in a batch
+- Receives fees from the published transactions
+- Pays L1 transaction fees + MATIC (depends on pending batches)
+- MATIC goes to Aggregators
+- Profitable if: `txs fees` > `L1 call` + `MATIC` fee
+
+
+
+(b) Aggregator
+
+- Processes transactions published by Sequencers
+- Builds zkProof
+- Receives MATIC from Sequencer
+- Static Cost: L1 call cost + Server cost (to build a proof)
+- Profitable if: `MATIC fee` > `L1 call` + `Server cost`
 
 
 
