@@ -105,6 +105,8 @@ The PoE smart contract, therefore, makes two basic calls: A call to receive batc
 
 ### Proof of Efficiency Tokenomics: Sequencers and Aggregators
 
+
+
 The PoE smart contract imposes a few requirements on Sequencers and Aggregators.
 
 **Sequencers**
@@ -115,7 +117,6 @@ A Sequencer receives L2 transactions from the users, preprocesses them as a new 
 - Every Sequencer must pay a fee in form of MATIC tokens to earn the right to create and propose batches. 
 - A Sequencer that proposes valid batches (which consist of valid transactions), is incentivised with the fee paid by transaction-requestors or the users of the network. 
 
-
 **Aggregators**
 
 An Aggregator receives all the transaction information from the Sequencer and sends it to the prover which provides a small zk-proof after complex polynomial computations. The smart contract validates this proof. This way, an aggregator collects the data, sends it to the prover, receives its output and finally, sends the information to the smart contract to check that the validity proof from the prover is correct. 
@@ -124,6 +125,28 @@ An Aggregator receives all the transaction information from the Sequencer and se
 - In addition to running zkEVM's zkNode software, Aggregators need to have specialised hardware for creating the zero-knowledge validity proofs. We, herein, call it the zkProver. (You will read about it later in this document).
 - For a given batch or batches, an Aggregator that submits a validity proof first earns the Matic fee (which is being paid by the Sequencer(s) of the batch(es)).
 - The Aggregators need to indicate their intention to validate transactions and then they compete to produce the validity proofs based on their own strategy.
+
+
+
+##### Incentivization Structure
+
+
+Below is a summary of the structure of how Sequencers and Aggregators are incentivised:
+
+- Sequencer
+  - Collects transactions and publish them in a batch
+  - Receives fees from the published transactions
+  - Pays L1 transaction fees + MATIC (depends on pending batches)
+  - MATIC goes to Aggregators
+  - Profitable if: `txs fees` > `L1 call` + `MATIC` fee
+- Aggregator
+  - Processes transactions published by Sequencers
+  - Builds zkProof
+  - Receives MATIC from Sequencer
+  - Static Cost: L1 call cost + Server cost (to build a proof)
+  - Profitable if: `MATIC fee` > `L1 call` + `Server cost`
+
+
 
 
 
