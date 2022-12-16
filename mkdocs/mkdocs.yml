@@ -71,6 +71,11 @@ nav:
         - Related Repositories: "zkEVM/zk-Tooling/PIL/Related-Repos.md"
       # - PIL-STARK:
       # - CIRCOM:
+    - zkEVM Implementation How To(s):
+        - Building on Polygon zkEVM: "zkEVM/Building-on-Polygon-zkEVM-H_io.md"
+        - How To Run A Local zkNode: "zkEVM/How-To-Run-A-zkNode.md"
+        - Setting Up Production zkNode: "zkEVM/Setting-Up-Production-zkNode.md"
+        - Polygon zkEVM Source Code: "zkEVM/Polygon-zkEVM-Source-Code.md"
     # - Implementation (How To(s)):
     #   - How to participate in the Testnet:
     #   - How to run a zkNode:
