@@ -280,6 +280,7 @@ docker-compose up -d
 ```
 
 
+Tags to be used for the different docker images available for the node components can be found [here](https://github.com/0xPolygonHermez/zkevm-node/tags).
 
 
 
@@ -535,7 +536,7 @@ To configure your Metamask to use your custom zkEVM network, follow these steps:
 5. Fill up the L2 network information
    - **Network Name:** Polygon zkEVM - Goerli
    - **New RPC URL:** [http://IP-and-Port-of-zkEVM-Node-Instance](http://ip-and-port-of-zkevm-node-instance/)
-   - **Chain ID:** 1402
+   - **Chain ID:** 1422
    - **Currency Symbol:** ETH
    - **Block Explorer URL:** [http://IP-and-Port-of-Explorer-Instance](http://ip-and-port-of-explorer-instance/)
 6. Click on **Save** and close the Settings
