@@ -94,7 +94,7 @@ of add $A$ and $C$ is the same as before. We can also express divisions, modular
 We will perform this kind of operations in the Arithmetic State Machine, with registers satisfying the PIL relation
 
 $$
-\text{EQ}_0 \colon \quad &x_1 \cdot y_1 + x_2 - y_2 \cdot 2^{256} - y_3 = 0
+\text{EQ}_0 \colon \quad x_1 \cdot y_1 + x_2 - y_2 \cdot 2^{256} - y_3 = 0
 $$
 
 
