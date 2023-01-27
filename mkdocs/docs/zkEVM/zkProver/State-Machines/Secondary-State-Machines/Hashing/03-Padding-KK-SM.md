@@ -552,7 +552,6 @@ Now observe that the tuple $(\mathtt{crOffset, crF0, crF1, . . . , crF7})$ is no
 <div align="center"><b> PIL Code : Checking correct values of registers </b></div>
 
 $$
-\hline
 \begin{aligned}
 \{ \quad \text{ }\text{ }\text{ }  &  \text{ }\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad \\ 
 & \mathtt{crOffset,}\\
@@ -594,7 +593,6 @@ For instance, in order to avoid problems, reading from the last (probably smalle
 <div align="center"><b> PIL Code : Validity Check for the Read operation </b></div>
 
 $$
-\hline
 \begin{aligned}
 \mathtt{hashK}\text{ } \{ & \text{} \\
 &\texttt{addr,}\\
