@@ -70,8 +70,7 @@ Here's an example of how two bytes, $\mathtt{0xa1}$ and $\mathtt{0xfe}$, from th
 <div align="center"><b> Table 1: Two Bytes Example from Padding-KK SM to Padding-KK-Bit SM  </b></div>
 
 $$
-\begin{array}{|l|c|}
-\hline
+\begin{array}{|l|c|} \hline
 \texttt{aFreeIn} & \texttt{r8Id}\\ \hline
 \mathtt{0xa1} & 1\\ \hline
 \mathtt{0xfe} & 2\\ \hline
@@ -97,8 +96,7 @@ $$
 1 & 2 & \mathtt{0b11110} & 2^5 & 0\\ 
 1 & 2 & \mathtt{0b111110} & 2^6 & 0\\ 
 1 & 2 & \mathtt{0b1111110} & 2^7 & 0\\ 
-\texttt{X} & 1 & \mathtt{0b11111110} & 0 & 1\\
-\hline
+\texttt{X} & 1 & \mathtt{0b11111110} & 0 & 1\\ \hline
 
 \end{array}
 $$
@@ -303,7 +301,6 @@ $$
 \}\\
 \text{ } \mathtt{in}\text{ }
 \text{ }\\
-
 \{  \\
 &\mathtt{PaddingKKBit.r8,} \\
 &\mathtt{PaddingKKBit.r8Id,}\\
@@ -341,7 +338,6 @@ hash7,
 \} \\
 \text{ } \mathtt{in}\text{ }
 \text{ }\\
-
 \{  \\
 &\mathtt{PaddingKKBit.sOut0, PaddingKKBit.sOut1,} \\
 &\mathtt{PaddingKKBit.sOut2, PaddingKKBit.sOut3,}\\
