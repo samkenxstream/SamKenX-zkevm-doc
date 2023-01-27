@@ -72,15 +72,20 @@ Note that every bit $\mathtt{b_{i,j}}$ from the $\mathtt{i}$-th $\mathtt{1600}$-
 
 The PIL code therefore uses factors denoted by $\mathtt{Factor}$, such that $\mathtt{Factor \in \{ 1, 2, 4, \dots , 2^{43} \}}$, and a $\mathtt{Fieldlatch}$ after running through forty-four $\mathtt{1600}$-bit blocks.
 
-Suppose $\mathtt{N = 64}$. Then the 44 least significant bits of the $\mathtt{64}$-bit field element looks like this: 
+Suppose $\mathtt{N = 64}$. Then the 44 least significant bits of the $\mathtt{64}$-bit field element looks like this:
+
 $$
 \mathtt{field44 = X_1 \cdot 2^{43} + X_2*2^{42} + X_2*2^{41} + \dots + X_{42}*2^2 + X_{43}*2 + X_{44}}.
 $$
+
 The constraint checked is therefore,
+
 $$
 \mathtt{field44' = (1-Fieldlatch)*field44 + bit*Factor}
 $$
+
 The accumulated field element at the end of the execution (every forty-fourth row of the execution trace) is checked against the Keccak-f input $\mathtt{KeccakF.a}$ with the boundary constraint,
+
 $$
 \mathtt{Fieldlatch*(field44 - KeccakF.a) = 0}
 $$
