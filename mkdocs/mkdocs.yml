@@ -43,7 +43,14 @@ nav:
         - Secondary State Machines:
           - Arithmetic: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Arithmetic/Arithmetic.md"
           - Storage: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Storage/Storage.md"
-          - Hashing: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/Introduction.md"
+          - Hashing:
+            - Introduction: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/01-Intro-SMs-for-Hashing.md"
+            - Keccak Framework: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/02-Keccak-Framework.md"
+            - Padding-KK: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/03-Padding-KK-SM.md"
+            - Padding-KK-Bit: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/04-Padding-KK-Bit-SM.md"
+            - Bits2Field: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/05-Bits2Field-SM.md"
+            - Keccak-f: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/06-KECCAK-f-sm.md"
+            - Poseidon: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/07-Poseidon-sm.md"
           - Binary: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Binary/Binary.md"
           - Memory: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Memory/Memory.md"
           - Memory Align: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Memory-Align/Memory-Align.md"
