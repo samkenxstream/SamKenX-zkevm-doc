@@ -48,13 +48,15 @@ Suppose operations are carried out in a field $\mathbb{F}_p$ of $\mathtt{64}$-bi
 After multiplexing, the 44 bits are loaded into the first 44 least significant bit-positions of the field element as depicted in Figure 2 below.
 
 A field element as an input to the Keccak-f circuit is of the form,
+
 $$
 \mathtt{0b}\mathtt{0000\ 0000\ 0000\ 0000\ 0000}\ \mathtt{X}_1 \mathtt{X}_2 \mathtt{X}_3 \mathtt{X}_4\ \mathtt{X}_5 \mathtt{X}_6 \mathtt{X}_7 \mathtt{X}_8\ \dots \mathtt{X}_{43} \mathtt{X}_{44}
 \text{ }
 $$
+
 and it is composed of 20 zeroes and 44 meaningful bits related to the committed polynomials.
 
-Given the capacity of $2^{23}$ in terms of the state machine evaluations (i.e., the degree of polynomials) and the Keccak-f's $\texttt{SlotSize} = 155286$, one obtains $ 2^{23} / 155286 = 54.020375307$ Keccak-f slots. Therefore, a total of $54$ slots $\times$ $44$ blocks $= 2376$ Keccak blocks can be processed. This is a big improvement from the previous $477$ blocks of the 9 bits to 1 field element multiplexing (i.e., $53 \times 9 = 477$.)
+Given the capacity of $2^{23}$ in terms of the state machine evaluations (i.e., the degree of polynomials) and the Keccak-f's $\texttt{SlotSize} = 155286$, one obtains $2^{23} / 155286 = 54.020375307$ Keccak-f slots. Therefore, a total of $54$ slots $\times$ $44$ blocks $= 2376$ Keccak blocks can be processed. This is a big improvement from the previous $477$ blocks of the 9 bits to 1 field element multiplexing (i.e., $53 \times 9 = 477$.)
 
 ![Figure 2: 44 Bits mapped to a 64-bit field element](figures/02b2f-44-bits-to-64bit-fe.png)
 
