@@ -149,7 +149,9 @@ So then, the bit $\mathtt{a} = \mathtt{Bit}[2,3,3]$ at coordinate $(2,3,3)$ is i
 
 
 <div align="center"><b>  Table 1: Mapping Linear State to the 3D-Array </b></div>
+
 $$
+\small
 \begin{array}{|l|c|c|c|c|c|}
 \hline
 \textbf{x} & \textbf{y} & \textbf{z} & \textbf{s[ 64x + 320y + z]} & \textbf{Bit}\textbf{[x,y,z]} & \textbf{Cube Colour in Fig.1.} \\ \hline
@@ -171,11 +173,11 @@ Consider computing the $\texttt{XOR}$ of all the 5 bits in the column $\{[2,y,63
 $$
 \mathtt{Bit[2,2,63]} = 1,\ \mathtt{Bit[2,1,63]} = 1,\ \mathtt{Bit[2,0,63]} = 0,\ \mathtt{Bit[2,4,63]} = 0\ \text{ and }\ \mathtt{Bit[2,3,63]} = 1
 $$
-then the $\texttt{XOR}$ of the column bits, denoted by $C[2,63]$, is $C[2,63] = 1 \bigoplus 1 \bigoplus 0 \bigoplus 0 \bigoplus 1 = 1$.
+then the $\texttt{XOR}$ of the column bits, denoted by $C[2,63]$, is $C[2,63] = 1 \oplus 1 \oplus 0 \oplus 0 \oplus 1 = 1$.
 
 In our notation, a column is identified by the fixed $x$- and $z$- values. Hence the $\texttt{XOR}$ of all the 5 bits in a column is denoted by $\mathtt{C[x,z]}$. That is, 
 $$
-\mathtt{C[x,z]} = \mathtt{Bit[x,0,z]} \bigoplus \mathtt{Bit[x,1,z]} \bigoplus \mathtt{Bit[x,2,z]}  \bigoplus \mathtt{Bit[x,3,z]}  \bigoplus \mathtt{Bit[x,4,z]}
+\mathtt{C[x,z]} = \mathtt{Bit[x,0,z]} \oplus \mathtt{Bit[x,1,z]} \oplus \mathtt{Bit[x,2,z]}  \oplus \mathtt{Bit[x,3,z]}  \oplus \mathtt{Bit[x,4,z]}
 $$
 
 
@@ -197,6 +199,7 @@ These step mappings are individually described in the subsections below. The fol
 <div align="center"><b>  Table 2: Composition of the Step Mappings </b></div>
 
 $$
+\small
 \begin{array}{|l|c|c|c|c|c|}
 \hline
 \textbf{Pseudo-code of the Composition} & \textbf{The keccak\_f.cpp Code}\\ \hline 
@@ -229,24 +232,46 @@ Henceforth, given a state value, the next value of the bit $\text{A}[x,y,z]$ is 
 The first step mapping, $\mathtt{\theta}$, referred to as $\texttt{KeccakTheta()}$ in [keccak_f.cpp](https://github.com/0xPolygonHermez/zkevm-prover/blob/main/tools/sm/keccak_f/keccak_f.cpp), can be described in three sub-steps;
 
 ***Firstly***, compute the $\mathtt{XOR}$ of the bits in the $[(x-1)\text{ mod }5, z]$-column,
+
+
 $$
-\mathtt{C[(x-1)\text{ mod }5, z] \ =} &\text{  } \mathtt{Bit[(x-1)\text{ mod }5,0,z]} \bigoplus \mathtt{Bit[(x-1)\text{ mod }5,1,z]} \bigoplus\text{ }\text{ }\text{ } \text{ }   \\ 
-&\mathtt{Bit[(x-1)\text{ mod }5,2,z]} \bigoplus \mathtt{Bit[(x-1)\text{ mod }5,3,z]} \bigoplus\text{  } \text{  }  \\ &\mathtt{Bit[(x-1)\text{ mod }5,0,z]} \text{  } \text{  } \text{  }\text{  } \text{  }\text{  } \text{  } \text{  } \text{  }  \text{  }\text{  } \text{  } \text{  } \text{  } \text{  } \text{  }\text{  } \text{  } \text{  }\text{  } \text{  } \text{  } \text{  } \text{  } \text{  }\text{  } \text{  } \text{  }\text{  } \text{  } \text{  } \text{  } \text{  } \text{  }\text{  } \text{  } \text{  }\text{  } \text{  } \text{  } \text{  } \text{  } \text{  }\text{  } \text{  } \text{  }\text{  } \text{  } \text{  }\text{  } \text{  } \text{  } \text{  }\text{  }\text{  } \text{  } \text{  } \text{  } \text{  } \text{  } \text{  } \text{  }
+\begin{aligned}
+\mathtt{C[(x-1)\text{ mod }5, z]  = } \text{  } \mathtt{Bit[(x-1)\text{ mod }5,0,z]} \oplus\\ \mathtt{Bit[(x-1)\text{ mod }5,1,z]} \oplus\\ 
+\mathtt{Bit[(x-1)\text{ mod }5,2,z]} \oplus\\
+\mathtt{Bit[(x-1)\text{ mod }5,3,z]} \oplus\\ 
+\mathtt{Bit[(x-1)\text{ mod }5,0,z]}\text{ }\text{ }\text{ }  
+\end{aligned}
 $$
+
+
 and the $\mathtt{XOR}$ of the bits in the $[(x+1)\text{ mod }5, (z-1)\text{ mod }64]$-column,
+
+
 $$
-&\mathtt{C[(x+1)\text{ mod }5, (z-1)\text{ mod } 64] =} \text{  } \mathtt{Bit[(x+1)\text{ mod }5,0,(z-1)\text{ mod } 64]} \bigoplus \text{  } \text{  } \text{  } \text{  } \text{  } \text{  } \text{  } \text{  } \text{  }\text{  } \text{  } \text{  }\text{  } \text{  } \text{  } \text{  } \text{  } \text{  }\text{  } \text{  } \text{  }\text{  } \text{  } \text{  } \text{  }\text{  }\\
-&\text{  } \mathtt{Bit[(x+1)\text{ mod }5,1,(z-1)\text{ mod } 64]}\text{ }\bigoplus\text{ } \mathtt{Bit[(x+1)\text{ mod }5,2,(z-1)\text{ mod } 64]}\text{ } \bigoplus\\ 
-&\text{ }\mathtt{Bit[(x+1)\text{ mod }5,3,(z-1)\text{ mod } 64]}\text{ }\bigoplus\text{ }
-\mathtt{Bit[(x+1)\text{ mod }5,0,(z-1)\text{ mod } 64]}\text{ }\text{  } \text{  } \text{  } \text{  } \text{ }\text{ }\text{ }
+\begin{aligned}
+\mathtt{C[(x+1)\text{ mod }5, (z-1)\text{ mod } 64] =\text{ }}
+\mathtt{Bit[(x+1)\text{ mod }5,0,(z-1)\text{ mod } 64]} \oplus \\
+\mathtt{Bit[(x+1)\text{ mod }5,1,(z-1)\text{ mod } 64]}\text{ }\oplus\\
+\mathtt{Bit[(x+1)\text{ mod }5,2,(z-1)\text{ mod } 64]}\text{ } \oplus\\ 
+\mathtt{Bit[(x+1)\text{ mod }5,3,(z-1)\text{ mod } 64]}\text{ }\oplus\\
+\mathtt{Bit[(x+1)\text{ mod }5,0,(z-1)\text{ mod } 64]}\quad
+\end{aligned}
 $$
+
+
 ***Secondly***, calculate the $\mathtt{XOR}$ of the two column $\mathtt{XOR}$s;
+
+
 $$
-\mathtt{D[x,z]\text{ } =}\text{ } \mathtt{C[(x-1)\text{ mod }5, z]\text{ } \bigoplus\text{ } {C}[(x+1)\text{ mod }5, (z-1)\text{ mod } 64]}
+\mathtt{D[x,z]\text{ } =}\text{ } \mathtt{C[(x-1)\text{ mod }5, z]\text{ } \oplus\text{ } {C}[(x+1)\text{ mod }5, (z-1)\text{ mod } 64]}
 $$
+
+
 ***Thirdly***, compute the $\mathtt{XOR}$ of $\mathtt{D[x,z]}$ and the bit $\mathtt{A[x,y,z]}$ of the current state value;
+
+
 $$
-\mathtt{A'[x,y,z] = {A}[x,y,z] \bigoplus {D}[x,z]}
+\mathtt{A'[x,y,z] = {A}[x,y,z] \oplus {D}[x,z]}
 $$
 See Figure 2 below, for an illustration of the $\theta$ step mapping applied on one bit. (The diagram is taken from [Keccak Reference 3.0](https://keccak.team/files/Keccak-reference-3.0.pdf).)
 
@@ -403,7 +428,7 @@ It then computes a non-linear combination of each bit $\mathtt{Bit}[x,b,c]$ in $
 
 That is, for each 5-bit row, $\mathbf{Row}[b,c]$,  $\chi$ can be summarised as the mapping of each bit, $\mathtt{Bit}[x,b,c]$, as;
 $$
-\chi : \mathtt{Bit}[x,b,c] \mapsto \Big(\big(\texttt{NOT}\big(\mathtt{Bit}[(x+1)\text{mod }5,b,c]\big) \big) \texttt{ AND }\big(\mathtt{Bit}[(x+2)\text{mod }5]\big)\Big)\ \bigoplus\ \mathtt{Bit}[x,b,c]
+\chi : \mathtt{Bit}[x,b,c] \mapsto \Big(\big(\texttt{NOT}\big(\mathtt{Bit}[(x+1)\text{mod }5,b,c]\big) \big) \texttt{ AND }\big(\mathtt{Bit}[(x+2)\text{mod }5]\big)\Big)\ \oplus\ \mathtt{Bit}[x,b,c]
 $$
 where  $x \in \{3,4,0,1,2\}$.  
 
@@ -459,7 +484,7 @@ Secondly, each round of $\large{\iota}$ simply XORes the corresponding 64-bit ro
 
 
 $$
-\textbf{Algorithm: Keccak-f Iota Mapping}\\ \hline
+\textbf{Algorithm: Keccak-f Iota Mapping}
 \text{} \\
 \textbf{Input: }\text{ state array }\mathbf{ A }\text{, round index } ir \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ } \\
 \textbf{Output:}\text{ state array }\mathbf{ A'}\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{} \\
@@ -470,7 +495,7 @@ $$
 \text{3. For } j \text{ from } 0 \text{ to } l, \text{ let } RC[2^j – 1] = rc[j + 7 ir]. \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\\
 \text{4. For all } z \text{ such that } 0 ≤ z <w,\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ } \\ 
 \text{ let } \mathbf{A'} [0, 0, z] = \mathbf{A'}[0, 0, z] \bigoplus RC[z].\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ } \\
-\text{5. Return } A' \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\\ \hline
+\text{5. Return } A' \text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }
 $$
 
 
@@ -521,6 +546,7 @@ Since the LFSR is initialised to $\mathtt{10000000 = 0x80}$ at $t = 0$, its stat
 <div align="center"><b> Table 7: Generation of the 7 bits for the second round-constant RC[1] </b></div>
 
 $$
+\small
 \begin{array}{|l|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
 \text{ }\texttt{t} & \texttt{R[0]} & \texttt{R[1]} & \texttt{R[2]} & \texttt{R[3]} & \texttt{R[4]} & \texttt{R[5]} & \texttt{R[6]}  & \texttt{R[7]} & \text{} & \texttt{j} & \texttt{rc[j+7]} & \mathtt{2^j-1} & \mathtt{RC[1][2^j-1]} \\ \hline
@@ -536,20 +562,28 @@ $$
 
 
 
-It can be observed, on the right-hand side of Table 7, that the $\mathtt{rc[j+7]}$ and $\mathtt{RC[1][2^j - 1]}$ are the same. That is, 
+It can be observed, on the right-hand side of Table 7, that the $\mathtt{rc[j+7]}$ and $\mathtt{RC[1][2^j - 1]}$ are the same. That is,
+
+
 $$
-\qquad RC[1][63] = 0 = rc[13],\ \text{ } RC[1][31] = 0 = rc[12],\ \text{ } RC[1][15] = 1 = rc[11],\\ 
-\text{ }\text{ } RC[1][7] = 1 = rc[10],\ \text{ } 
-RC[1][3] = 0 = rc[9],\ \text{ } RC[1][1] = 1 = rc[8],\quad \\ 
-\text{ }\text{ } \ \text{ } RC[1][0] = 0 = rc[7], \text{ and }\
-RC[1][l] = 0\ \text{ for all }\ l \notin \{ 0, 1, 3, 7, 15, 31, 63 \}  
-\text{}\\
+\begin{aligned}
+RC[1][63] = 0 = rc[13],\text{ } RC[1][31] = 0 = rc[12],\text{ } RC[1][15] = 1 = rc[11],\\
+RC[1][7] = 1 = rc[10], \text{ } RC[1][3] = 0 = rc[9], \text{ } RC[1][1] = 1 = rc[8],\qquad \\ 
+RC[1][0] = 0 = rc[7] \text{ and }\
+RC[1][l] = 0\ \text{ for all }\ l \notin \{ 0, 1, 3, 7, 15, 31, 63 \}\text{ }\\
+\end{aligned}
 $$
+
+
 This results in the round-constant,
+
+
 $$
+\begin{aligned}
 RC[1] = RC[1][63]\ RC[1][62]\ RC[1][61]\ \dots\ RC[1][3]\ RC[1][2]\ RC[1][1]\ RC[1][0]\\
-RC[1] = 0000 0000\ 0000 0000\ \dots\ 1000 0000\ 1000 1010_{binary} \qquad\qquad\qquad\qquad\quad\text{ }\text{ } \\
-RC[1] = \mathtt{0x0000000000008082} \qquad\qquad\qquad\qquad\qquad\qquad\quad \qquad\qquad\qquad\quad\text{ }\text{ }
+RC[1] = 0b0000 0000\ 0000 0000\ \dots\ 1000 0000\ 1000 1010 \qquad\qquad\qquad\qquad\quad\quad\text{ }\text{ } \\
+RC[1] = \mathtt{0x0000000000008082} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\text{ }\text{ }
+\end{aligned}
 $$
 
 
@@ -568,8 +602,4 @@ All 24 round constants $RC[i]$, where each is $64$ bits long, are given in their
 The C++ code for the LFSR is found in the zkEVM prover repository here [keccak_rc.cpp](https://github.com/0xPolygonHermez/zkevm-prover/blob/main/tools/sm/keccak_f/keccak_rc.cpp). 
 
 All these step mappings are consolidated in the [keccakf.cpp](https://github.com/0xPolygonHermez/zkevm-prover/blob/main/tools/sm/keccak_f/keccak_f.cpp) code, which calls them as functions (see Table 2 above).
-
-
-
-
 
