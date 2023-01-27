@@ -75,7 +75,7 @@ The PIL code therefore uses factors denoted by $\mathtt{Factor}$, such that $\ma
 Suppose $\mathtt{N = 64}$. Then the 44 least significant bits of the $\mathtt{64}$-bit field element looks like this:
 
 $$
-\mathtt{field44 = X_1 \cdot 2^{43} + X_{2}*{2}^{42} + X_{2}*{2}^{41} + \dots + X_{42}*{2}^2 + X_{43}*2 + X_{44}}.
+\mathtt{field44 = X_1 \cdot 2^{43} + X_{2}*{2}^{42} + X_{3}*{2}^{41} + \dots + X_{42}*{2}^2 + X_{43}*2 + X_{44}}.
 $$
 
 The constraint checked is therefore,
