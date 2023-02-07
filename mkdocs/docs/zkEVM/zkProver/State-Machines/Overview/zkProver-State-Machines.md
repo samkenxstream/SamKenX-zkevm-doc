@@ -53,11 +53,11 @@ But this only scratches the surface of what the zkProver does. There is a lot mo
 
 
 
-The zkProver follows modularity of design to the extend that, except for a few components, it is mainly a cluster of state machines. It has a total of fourteen (14) state machines;
+The zkProver follows modularity of design to the extend that, except for a few components, it is mainly a cluster of state machines. It has a total of thirteen (13) state machines;
 
 - The Main State Machine, 
 - Secondary state machines; The Binary SM, The Storage SM, The Memory SM, The Arithmetic SM, The Keccak Function SM, The PoseidonG SM,
-- Auxiliary state machines; The Padding-PG SM, The Padding-KK SM, The Nine2One SM, The Memory Align SM, The Norm Gate SM, The Byte4 SM, The ROM SM.
+- Auxiliary state machines; The Padding-PG SM, The Padding-KK SM, The Bits2Field SM, The Memory Align SM, The Byte4 SM, The ROM SM.
 
 
 
@@ -181,7 +181,7 @@ A full description of the Keccak SM can be found in its individual document.
 
 
 
-The $\text{POSEIDON}$ hash function, although newer than the Keccak hash and thus still under the scritiny of cryptanalysts, it has been publicised as a [zk-STARK-friendly hash function](https://starkware.co/hash-challenge/). As such, it is best-suited for the zkProver context.
+The $\text{POSEIDON}$ hash function, although newer than the Keccak hash and thus still under the scrutiny of cryptanalysts, it has been publicised as a [zk-STARK-friendly hash function](https://starkware.co/hash-challenge/). As such, it is best-suited for the zkProver context.
 
 The $\text{POSEIDON}$ SM is the most straight forward especially if one is familiar with the internal mechanism of the original Poseidon hash function. 
 
