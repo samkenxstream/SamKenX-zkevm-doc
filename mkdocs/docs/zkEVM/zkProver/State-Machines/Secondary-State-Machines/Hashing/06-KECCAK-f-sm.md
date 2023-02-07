@@ -37,10 +37,12 @@ The $\texttt{Keccak-f}$ circuit has two types of gates, types $\mathtt{0}$ and $
 The $\texttt{Keccak-f}$ executor builds the constant polynomials, $\mathtt{ConnA}$, $\mathtt{ConnB}$ and $\mathtt{ConnC}$, and these are to be tested if they match their corresponding polynomials, $\mathtt{kA}$, $\mathtt{kB}$ and $\mathtt{kC}$.
 
 Also, for any $\texttt{op} \in \{ \mathtt{XOR}, \mathtt{ANDP} \}$  we have
+
 $$
-\texttt{op} \big( \mathtt{ConnA}, \mathtt{ConnB}\big) = \mathtt{ConnC} \\
+\texttt{op} \big( \mathtt{ConnA}, \mathtt{ConnB}\big) = \mathtt{ConnC}, \text{ } \\ 
 \texttt{op} \big( \mathtt{kA}, \mathtt{kB} \big) = \mathtt{kC}
 $$
+
 The $44$ bits are loaded into the state machine as $11$-bit chunks. 
 
 In $\texttt{keccakf.pil}$, each committed polynomial $\texttt{a[4]}$ is expressed in terms of 4 chunks, where each is $11$ bits long. The corresponding a $44$-bit array can be expressed as, 
