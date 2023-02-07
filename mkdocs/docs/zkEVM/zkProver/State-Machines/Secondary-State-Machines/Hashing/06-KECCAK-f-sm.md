@@ -51,14 +51,18 @@ $$
 $$
 where $\texttt{a}[i]$ for each $i \in \{ 0, 1, 2, 3 \}$.  
 
-The verification involves a copy constraint 
+The verification involves a copy constraint
+
 $$
-\mathtt{ \{a44, b44, c44\}}\ \texttt{connect}\ \mathtt{\{ConnA, ConnB, ConnC\}};
+\mathtt{ \{ a44, b44, c44 \} }\ \texttt{connect}\ \mathtt{ \{ ConnA, ConnB, ConnC \} };
 $$
-and a Plook-up as,  
+
+and a Plook-up as,
+
 $$
-\mathtt{ \{GateType, a[i], b[i], c[i]\}}\ \texttt{in} \ \mathtt{\{kGateType, kA, kB, kC\}};
+\mathtt{ \{ GateType, a[i], b[i], c[i] \} }\ \texttt{in} \ \mathtt{ \{ kGateType, kA, kB, kC \} };
 $$
+
 for each $i \in \{ 0, 1, 2, 3 \}$.
 
 This covers the $\texttt{Keccak-f}$ circuit in a nutshell together with its PIL code. See the codes [sm_keccakf.js](https://github.com/0xPolygonHermez/zkevm-proverjs/blob/main/src/sm/sm_keccakf/sm_keccakf.js) and [keccakf.pil](https://github.com/0xPolygonHermez/zkevm-proverjs/blob/main/pil/keccakf.pil).
