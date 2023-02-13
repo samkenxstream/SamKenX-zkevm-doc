@@ -1,4 +1,4 @@
-site_name: Polygon zkEVM Documentation
+site_name: Hermez 1.0 Documentation
 site_url: https://docs.hermez.io/
 theme:
   name: material
@@ -28,61 +28,61 @@ extra:
       link: https://hermez.io/
 
 nav:
-  - Polygon zkEVM:
-    - zkEVM Overview: "zkEVM/Overview/Overview.md"
-    - Basic Concepts:
-      - Introduction: "zkEVM/Basic-Concepts/Intro-zkProver's-Design-Approach.md"
-      - Multiplicative Fibonacci SM: "zkEVM/Basic-Concepts/mFibonnaci-State-Machine-eg.md"
-      - A Generic State Machine: "zkEVM/Basic-Concepts/A-Generic-State-Machine.md"
-    - zkProver:
-      - zkProver Overview: "zkEVM/zkProver/Overview/zkProver-Overview.md"
-      - States Machines:
-        - State Machines Overview: "zkEVM/zkProver/State-Machines/Overview/zkProver-State-Machines.md"
+  # - Polygon zkEVM:
+  #  - zkEVM Overview: "zkEVM/Overview/Overview.md"
+  #  - Basic Concepts:
+  #    - Introduction: "zkEVM/Basic-Concepts/Intro-zkProver's-Design-Approach.md"
+  #    - Multiplicative Fibonacci SM: "zkEVM/Basic-Concepts/mFibonnaci-State-Machine-eg.md"
+  #    - A Generic State Machine: "zkEVM/Basic-Concepts/A-Generic-State-Machine.md"
+  #  - zkProver:
+  #    - zkProver Overview: "zkEVM/zkProver/Overview/zkProver-Overview.md"
+  #    - States Machines:
+  #      - State Machines Overview: "zkEVM/zkProver/State-Machines/Overview/zkProver-State-Machines.md"
         # - Main State Machine:
         #   - Introduction: "zkEVM/zkProver/State-Machines/Main-State-Machine/Introduction.md"
-        - Secondary State Machines:
-          - Arithmetic: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Arithmetic/Arithmetic.md"
-          - Storage: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Storage/Storage.md"
-          - Hashing:
-            - Introduction: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/01-Intro-SMs-for-Hashing.md"
-            - Keccak Framework: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/02-Keccak-Framework.md"
-            - Padding-KK: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/03-Padding-KK-SM.md"
-            - Padding-KK-Bit: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/04-Padding-KK-Bit-SM.md"
-            - Bits2Field: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/05-Bits2Field-SM.md"
-            - Keccak-f: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/06-KECCAK-f-sm.md"
-            - Poseidon: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/07-Poseidon-sm.md"
-          - Binary: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Binary/Binary.md"
-          - Memory: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Memory/Memory.md"
-          - Memory Align: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Memory-Align/Memory-Align.md"
-          - Complementary: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Complementary/Complementary.md"
-          - Configuration File: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Complementary/Configuration-File.md"
+   #     - Secondary State Machines:
+   #       - Arithmetic: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Arithmetic/Arithmetic.md"
+   #       - Storage: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Storage/Storage.md"
+   #       - Hashing:
+   #         - Introduction: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/01-Intro-SMs-for-Hashing.md"
+   #         - Keccak Framework: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/02-Keccak-Framework.md"
+   #         - Padding-KK: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/03-Padding-KK-SM.md"
+   #         - Padding-KK-Bit: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/04-Padding-KK-Bit-SM.md"
+   #         - Bits2Field: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/05-Bits2Field-SM.md"
+   #         - Keccak-f: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/06-KECCAK-f-sm.md"
+   #         - Poseidon: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Hashing/07-Poseidon-sm.md"
+   #       - Binary: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Binary/Binary.md"
+   #       - Memory: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Memory/Memory.md"
+   #       - Memory Align: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Memory-Align/Memory-Align.md"
+   #       - Complementary: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Complementary/Complementary.md"
+   #       - Configuration File: "zkEVM/zkProver/State-Machines/Secondary-State-Machines/Complementary/Configuration-File.md"
       # - zkASM And PIL: "zkEVM/zkProver/Architecture/zkASM-and-PIL.md"
       # - Verifiable Computations: 
         # - Introduction: "zkEVM/zkProver/Verifiable-Computations/Introduction.md"
         # - "First Example: Fibonacci": "zkEVM/zkProver/Verifiable-Computations/Fibonacci.md"
         # - Simple State Machine: "zkEVM/zkProver/Verifiable-Computations/Simple-State-Machine.md"  
         # - Modular Design: "zkEVM/zkProver/Verifiable-Computations/Modular-Design.md"  
-    - zk Tooling:
-      - zkASM:
-        - Introduction: "zkEVM/zk-Tooling/zkASM/Introduction.md"
-        - Basic Syntax: "zkEVM/zk-Tooling/zkASM/Basic-Syntax.md"
-        - Some Examples: "zkEVM/zk-Tooling/zkASM/Some-Examples.md"
-        - Related Repositories: "zkEVM/zk-Tooling/zkASM/Related-Repos.md"
-      - PIL:
-        - Introduction: "zkEVM/zk-Tooling/PIL/Introduction.md"
-        - Hello Word Examples: "zkEVM/zk-Tooling/PIL/Hello-World-Examples.md"
-        - Components: "zkEVM/zk-Tooling/PIL/Components.md"
-        - Cyclical Nature: "zkEVM/zk-Tooling/PIL/Cyclical-Nature.md"
-        - Modularity: "zkEVM/zk-Tooling/PIL/Modularity.md"
-        - Advanced Features: "zkEVM/zk-Tooling/PIL/Advanced-Features.md"
-        - Related Repositories: "zkEVM/zk-Tooling/PIL/Related-Repos.md"
+   # - zk Tooling:
+   #   - zkASM:
+   #     - Introduction: "zkEVM/zk-Tooling/zkASM/Introduction.md"
+   #     - Basic Syntax: "zkEVM/zk-Tooling/zkASM/Basic-Syntax.md"
+   #     - Some Examples: "zkEVM/zk-Tooling/zkASM/Some-Examples.md"
+   #     - Related Repositories: "zkEVM/zk-Tooling/zkASM/Related-Repos.md"
+   #   - PIL:
+   #     - Introduction: "zkEVM/zk-Tooling/PIL/Introduction.md"
+   #     - Hello Word Examples: "zkEVM/zk-Tooling/PIL/Hello-World-Examples.md"
+   #     - Components: "zkEVM/zk-Tooling/PIL/Components.md"
+   #     - Cyclical Nature: "zkEVM/zk-Tooling/PIL/Cyclical-Nature.md"
+   #     - Modularity: "zkEVM/zk-Tooling/PIL/Modularity.md"
+   #     - Advanced Features: "zkEVM/zk-Tooling/PIL/Advanced-Features.md"
+   #     - Related Repositories: "zkEVM/zk-Tooling/PIL/Related-Repos.md"
       # - PIL-STARK:
       # - CIRCOM:
-    - zkEVM Implementation How To(s):
-        - Building on Polygon zkEVM: "zkEVM/Building-on-Polygon-zkEVM-H_io.md"
-        - How To Run A Local zkNode: "zkEVM/How-To-Run-A-zkNode.md"
-        - Setting Up Production zkNode: "zkEVM/Setting-Up-Production-zkNode.md"
-        - Polygon zkEVM Source Code: "zkEVM/Polygon-zkEVM-Source-Code.md"
+    # - zkEVM Implementation How To(s):
+    #    - Building on Polygon zkEVM: "zkEVM/Building-on-Polygon-zkEVM-H_io.md"
+    #    - How To Run A Local zkNode: "zkEVM/How-To-Run-A-zkNode.md"
+    #    - Setting Up Production zkNode: "zkEVM/Setting-Up-Production-zkNode.md"
+    #    - Polygon zkEVM Source Code: "zkEVM/Polygon-zkEVM-Source-Code.md"
     # - Implementation (How To(s)):
     #   - How to participate in the Testnet:
     #   - How to run a zkNode:
@@ -95,7 +95,7 @@ nav:
     #     - Introduction: "zkEVM/Proof-of-Efficiency/Introduction.md"
     #   - The Bridge:
     #     - Introduction: "zkEVM/Bridge/Introduction.md"
-    - References: "zkEVM/references.md"
+    # - References: "zkEVM/references.md"
   - Hermez 1.0:
     - About:
       - Ethereum Scalability and zk-Rollups: "Hermez_1.0/about/scalability.md"
